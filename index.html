@@ -50,12 +50,90 @@
     <!-- Main Container -->
     <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-6">
 
-        <!-- GROSSE HAUPTÜBERSCHRIFT MIT LOGO -->
-        <div class="flex flex-col items-center justify-center text-center space-y-3 py-2">
-            <img src="https://raw.githubusercontent.com/Zechenhauer/doko_bundesliga/main/logo.png" alt="DoKo Logo" class="h-16 sm:h-20 w-auto object-contain bg-white/5 p-2 rounded-2xl border border-slate-700/80 shadow-lg" onerror="this.style.display='none'">
-            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white flex items-center justify-center gap-2">
-                DoKo Bundesliga <span class="text-xs bg-brand-500/20 text-brand-400 border border-brand-500/30 px-2.5 py-1 rounded-full font-medium">Saison 2026</span>
-            </h1>
+        <!-- LOGO, ÜBERSCHRIFT & WEBMANAGEMENT -->
+        <div class="flex flex-col items-center justify-center text-center space-y-2 py-2">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 bg-slate-900/40 border border-slate-800/80 px-6 py-3 rounded-2xl shadow-lg backdrop-blur-sm">
+                <img src="https://raw.githubusercontent.com/Zechenhauer/doko_bundesliga/main/logo.png" alt="DoKo Logo" class="h-12 sm:h-14 w-auto object-contain bg-white/5 p-1 rounded-xl border border-slate-700/80" onerror="this.style.display='none'">
+                <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white flex items-center justify-center gap-3">
+                    DoKo Bundesliga <span class="text-xs bg-brand-500/20 text-brand-400 border border-brand-500/30 px-3 py-1 rounded-full font-medium">Saison 2026</span>
+                </h1>
+            </div>
+            <p class="text-xs text-slate-400 font-medium pt-1">Webmanagement Jürgen Schützendorf</p>
+        </div>
+
+        <!-- DIE 3 SPEZIELLEN KACHELN -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- Kachel 1: Top 3 Einzel 2026 -->
+            <div onclick="switchTab('single-2026')" class="bg-slate-900/80 border border-slate-800 hover:border-brand-500/60 transition cursor-pointer rounded-2xl p-4 shadow-xl backdrop-blur-sm flex flex-col justify-between">
+                <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-800">
+                    <h3 class="font-bold text-white text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-user-trophy text-brand-400"></i> Top 3 Einzel 2026
+                    </h3>
+                    <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded border border-slate-700">Aktuell</span>
+                </div>
+                <div class="space-y-2.5 text-xs pointer-events-none">
+                    <div class="flex items-center justify-between p-2 rounded-lg bg-slate-950/40 border border-slate-800/50">
+                        <span class="text-slate-300 font-medium">1. Fritsch, Felix</span>
+                        <span class="font-bold text-brand-400">336 Pkt.</span>
+                    </div>
+                    <div class="flex items-center justify-between p-2 rounded-lg bg-slate-950/40 border border-slate-800/50">
+                        <span class="text-slate-300 font-medium">2. Jöns, Daniel</span>
+                        <span class="font-bold text-brand-400">317 Pkt.</span>
+                    </div>
+                    <div class="flex items-center justify-between p-2 rounded-lg bg-slate-950/40 border border-slate-800/50">
+                        <span class="text-slate-300 font-medium">3. Lechner, Stefan</span>
+                        <span class="font-bold text-brand-400">310 Pkt.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kachel 2: Ehrentafel Meister ab 1997 -->
+            <div onclick="openMeisterModal()" class="bg-slate-900/80 border border-slate-800 hover:border-amber-500/60 transition cursor-pointer rounded-2xl p-4 shadow-xl backdrop-blur-sm flex flex-col justify-between">
+                <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-800">
+                    <h3 class="font-bold text-white text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-trophy text-amber-400"></i> Ehrentafel Meister ab 1997
+                    </h3>
+                    <span class="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded border border-amber-500/30">Alle anzeigen</span>
+                </div>
+                <div class="space-y-2.5 text-xs pointer-events-none">
+                    <div class="flex items-center justify-between p-2 rounded-lg bg-slate-950/40 border border-slate-800/50">
+                        <span class="text-slate-300 font-medium">2025: W KD / CE LLE</span>
+                        <span class="font-bold text-amber-400">33 WP (866 SP)</span>
+                    </div>
+                    <div class="flex items-center justify-between p-2 rounded-lg bg-slate-950/40 border border-slate-800/50">
+                        <span class="text-slate-300 font-medium">2024: BOT DKC</span>
+                        <span class="font-bold text-amber-400">32 WP (945 SP)</span>
+                    </div>
+                    <div class="flex items-center justify-between p-2 rounded-lg bg-slate-950/40 border border-slate-800/50">
+                        <span class="text-slate-300 font-medium">2023: W KD / CE LLE</span>
+                        <span class="font-bold text-amber-400">32 WP (519 SP)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kachel 3: Ehrentafel Einzel ab 1997 -->
+            <div onclick="openEwigeEinzelModal()" class="bg-slate-900/80 border border-slate-800 hover:border-emerald-500/60 transition cursor-pointer rounded-2xl p-4 shadow-xl backdrop-blur-sm flex flex-col justify-between">
+                <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-800">
+                    <h3 class="font-bold text-white text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-medal text-emerald-400"></i> Ehrentafel Einzel ab 1997
+                    </h3>
+                    <span class="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded border border-emerald-500/30">Alle anzeigen</span>
+                </div>
+                <div class="space-y-2.5 text-xs pointer-events-none">
+                    <div class="flex items-center justify-between p-2 rounded-lg bg-slate-950/40 border border-slate-800/50">
+                        <span class="text-slate-300 font-medium">2025: Schützendorf, Jürgen</span>
+                        <span class="font-bold text-emerald-400">404 Pkt.</span>
+                    </div>
+                    <div class="flex items-center justify-between p-2 rounded-lg bg-slate-950/40 border border-slate-800/50">
+                        <span class="text-slate-300 font-medium">2024: Lechner, Stefan</span>
+                        <span class="font-bold text-emerald-400">602 Pkt.</span>
+                    </div>
+                    <div class="flex items-center justify-between p-2 rounded-lg bg-slate-950/40 border border-slate-800/50">
+                        <span class="text-slate-300 font-medium">2023: Vonrüden, Andreas</span>
+                        <span class="font-bold text-emerald-400">406 Pkt.</span>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Notification Banner -->
@@ -278,7 +356,7 @@
         </div>
     </div>
 
-    <!-- SPIELER-RANKING MODAL (NEU: 2026er SPIELER PRO MANNSCHAFT) -->
+    <!-- SPIELER-RANKING MODAL (SPIELER PRO MANNSCHAFT) -->
     <div id="player-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full p-6 shadow-2xl space-y-5 relative">
             <button onclick="closePlayerModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg">
@@ -316,6 +394,82 @@
         </div>
     </div>
 
+    <!-- MODAL 3: EHRENTAFEL MANNSCHAFTSWERTUNG (Exakt nach Bild "Alle Meister_2.jpg") -->
+    <div id="meister-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-4xl w-full p-6 shadow-2xl space-y-5 relative">
+            <button onclick="closeMeisterModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="flex items-center space-x-3">
+                <div class="bg-amber-500/20 text-amber-400 p-3 rounded-xl border border-amber-500/30">
+                    <i class="fa-solid fa-trophy text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-white">Ehrentafel Bundesliga (Mannschaftswertung)</h3>
+                    <p class="text-xs text-slate-400">Alle Meister und Spieler von 1997 bis 2025</p>
+                </div>
+            </div>
+            <div class="overflow-x-auto max-h-[70vh]">
+                <table class="w-full text-left border-collapse text-xs">
+                    <thead>
+                        <tr class="bg-slate-800/80 text-slate-300 uppercase tracking-wider text-[10px] border-b border-slate-700 sticky top-0">
+                            <th class="py-3 px-4 font-bold w-20">Saison</th>
+                            <th class="py-3 px-4 font-bold w-44">Meister</th>
+                            <th class="py-3 px-3 font-bold text-center w-16">WP</th>
+                            <th class="py-3 px-3 font-bold text-center w-20">SpP</th>
+                            <th class="py-3 px-4 font-bold">Spieler</th>
+                        </tr>
+                    </thead>
+                    <tbody id="modal-meister-body" class="divide-y divide-slate-800/60 font-medium"></tbody>
+                </table>
+            </div>
+            <div class="flex justify-end pt-2">
+                <button onclick="closeMeisterModal()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-xl transition">
+                    Schließen
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 4: EHRENTAFEL EINZELWERTUNG (Exakt nach Bild "Alle einzelsieger_2.jpg") -->
+    <div id="ewige-einzel-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-4xl w-full p-6 shadow-2xl space-y-5 relative">
+            <button onclick="closeEwigeEinzelModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="flex items-center space-x-3">
+                <div class="bg-emerald-500/20 text-emerald-400 p-3 rounded-xl border border-emerald-500/30">
+                    <i class="fa-solid fa-medal text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-white">Ehrentafel Bundesliga (Einzelwertung)</h3>
+                    <p class="text-xs text-slate-400">Alle Einzelsieger von 1997 bis 2025</p>
+                </div>
+            </div>
+            <div class="overflow-x-auto max-h-[70vh]">
+                <table class="w-full text-left border-collapse text-xs">
+                    <thead>
+                        <tr class="bg-slate-800/80 text-slate-300 uppercase tracking-wider text-[10px] border-b border-slate-700 sticky top-0">
+                            <th class="py-3 px-4 font-bold w-20">Saison</th>
+                            <th class="py-3 px-4 font-bold">Name, Vorname</th>
+                            <th class="py-3 px-4 font-bold">Mannschaft</th>
+                            <th class="py-3 px-4 font-bold">Verein</th>
+                            <th class="py-3 px-3 font-bold text-center">Punkte</th>
+                            <th class="py-3 px-3 font-bold text-center">Runden</th>
+                            <th class="py-3 px-3 font-bold text-center">Schnitt</th>
+                        </tr>
+                    </thead>
+                    <tbody id="modal-ewige-einzel-body" class="divide-y divide-slate-800/60 font-medium"></tbody>
+                </table>
+            </div>
+            <div class="flex justify-end pt-2">
+                <button onclick="closeEwigeEinzelModal()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-xl transition">
+                    Schließen
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-slate-900 border-t border-slate-800 mt-12 py-6 text-center text-xs text-slate-500">
         <p>Doppelkopf Bundesliga Manager &copy; 2026 &bull; Webmanagement Jürgen Schützendorf</p>
@@ -327,6 +481,66 @@
         const SUPABASE_URL = 'https://lhusylpjnujlqomougmg.supabase.co';
         const SUPABASE_ANON_KEY = 'sb_publishable_yXEueWILvAq-Vm2VfTuYyg_BIQeE1KK';
         const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // Vollständige Meister-Historie (Mannschaftswertung 1997 bis 2025 - EXAKT nach "Alle Meister_2.jpg")
+        const MEISTER_HISTORIE = [
+            { saison: 2025, meister: "W KD / CE LLE", wp: 33, spp: 866, spieler: "Buchhalla, Katharina, Flieger, Helmut, Godglück, Fabian, Kümmet, Hans-Jürgen, Laun, Bodo, Löffelholz, Mario, Mathesie, Andrea, Schierbaum, Ralf, Vonrüden, Andreas, Vonrüden, Verena" },
+            { saison: 2024, meister: "BOT DKC", wp: 32, spp: 945, spieler: "Bolik, Christian, de Kok, Michael, Hantschel, Sascha, Jöns, Daniel, Schmidt, Ralf, Stopka, Dominik" },
+            { saison: 2023, meister: "W KD / CE LLE", wp: 32, spp: 519, spieler: "Buchhalla, Katharina, Flieger, Helmut, Godglück, Fabian, Kümmet, Hans-Jürgen, Laun, Bodo, Löffelholz, Mario, Siffert, Olaf, Vonrüden, Andreas" },
+            { saison: 2019, meister: "GÖ TTER", wp: 31, spp: 612, spieler: "Eickenbusch, Sebastian, Heinrich, Klaus, Kannenberg, Leif, Lehmann, Leif, Ruben, Olaf, Schewe, Philipp, Scholten, Markus, Zeimer, Claudia" },
+            { saison: 2018, meister: "GÖ TTER", wp: 32, spp: 640, spieler: "Duscheleit, Max, Eickenbusch, Sebastian, Heinrich, Klaus, Huesmann, Tim, Kannenberg, Leif, Lehmann, Leif, Ruben, Olaf, Schewe, Philipp, Scholten, Markus, Schwarz, Julia, Zacher, Harald, Zeimer, Claudia" },
+            { saison: 2017, meister: "W KD / MS DCM", wp: 32, spp: 1120, spieler: "Flieger, Helmut, Laun, Bodo, Siffert, Olaf, Vonrüden, Andreas, Vonrüden, Verena, Weßels, Guido" },
+            { saison: 2016, meister: "W KD / MS DCM", wp: 34, spp: 791, spieler: "Flieger, Helmut, Laun, Bodo, Siffert, Olaf, Vonrüden, Andreas, Weßels, Guido" },
+            { saison: 2015, meister: "MO K92 / WES DDRN", wp: 33, spp: 662, spieler: "Baaken, Hermann, Friers, Guido, Frost, Dieter, Scholten, Markus, Schützendorf, Jürgen, Wallutis, Ralf, Willmann, Thomas" },
+            { saison: 2014, meister: "BOT DKC", wp: 32, spp: 511, spieler: "de Kok, Michael, Hantschel, Sascha, Jöns, Daniel, Reintjes, Olaf, Schmidt, Ralf, Schöler, Kai" },
+            { saison: 2013, meister: "MH FUKS / DU ZHN", wp: 33, spp: 862, spieler: "Bolik, Christian, Ehm, Christa, Hassel, Christoph, Kempkens, Thorsten, Klapdor, Stefan, von der Brüggen, Georg, von der Warth, Guido, von der Warth, Katja" },
+            { saison: 2012, meister: "MH FUKS / DU ZHN", wp: 33, spp: 710, spieler: "Bolik, Christian, Ehm, Christa, Kempkens, Thorsten, von der Warth, Katja, von der Warth, Guido" },
+            { saison: 2011, meister: "WES K92 / DDRN", wp: 33, spp: 426, spieler: "Baaken, Hermann, Friers, Guido, Günther, Markus, Herbst, Klaus-Dieter, Scholten, Markus, Schützendorf, Jürgen, Wallutis, Ralf, Willmann, Thomas" },
+            { saison: 2010, meister: "MI CMDF", wp: 34, spp: 921, spieler: "Hoops, Lars-Peter, Lühert, Peter, Schütt, André, Stopka, Dominik" },
+            { saison: 2009, meister: "MI CMDF", wp: 33, spp: 879, spieler: "Hoops, Lars-Peter, Lühert, Peter, Schütt, André, Stopka, Dominik" },
+            { saison: 2008, meister: "BS NON I", wp: 35, spp: 844, spieler: "Berger, Gerhard, Gonsberg, Gabriele, Kannenberg, Leif, Knuf, Simon, Liedtke, Richard" },
+            { saison: 2007, meister: "MI CMDF", wp: 34, spp: 1064, spieler: "Hoops, Lars-Peter, Krinke, Mario, Lühert, Peter, Schröer, Meik, Schütt, André, Stopka, Dominik" },
+            { saison: 2006, meister: "GM RADE / W KD", wp: 32, spp: 366, spieler: "Ehm, Christa, Hasenburg, Volker, Kreh, Wilhelm, Tkotz, Peter, Vonrüden, Andreas" },
+            { saison: 2005, meister: "GM RADE / W KD", wp: 30, spp: 476, spieler: "Ehm, Christa, Hasenburg, Volker, Kreh, Wilhelm, Tkotz, Peter, Vonrüden, Andreas" },
+            { saison: 2004, meister: "MZ DR", wp: 35, spp: 1205, spieler: "Angermann, Terrance, Breuer, Petra, Fröhner, Christian, Körner, Thomas, Kümmet, Hans-Jürgen, Moazzami, Mamad" },
+            { saison: 2003, meister: "MZ DR", wp: 35, spp: 1465, spieler: "Angermann, Terrance, Fröhner, Christian, Körner, Thomas, Kümmet, Hans-Jürgen, Moazzami, Mamad" },
+            { saison: 2002, meister: "GM RADE / W KD", wp: 36, spp: 880, spieler: "Ehm, Christa, Hasenburg, Volker, Kreh, Wilhelm, L'hoest, Wilko, Tkotz, Peter, Vonrüden, Andreas" },
+            { saison: 2001, meister: "W KD", wp: 32, spp: 635, spieler: "Bolik, Christian, Flemm, Wolfgang, Flieger, Helmut, Hesse, Michael, Mahnert, Klaus-Thomas, Platzek, Jörg, Seidler, Frank, Zedler, Heinz" },
+            { saison: 2000, meister: "DA JA80", wp: 35, spp: 647, spieler: "Fischer, Rüdiger, Friebe, Jürgen, Gornpf, Hans-Peter, Hartmann, Jürgen, Hartmann, Kanita" },
+            { saison: 1999, meister: "GM RADE / W KD", wp: 33, spp: 818, spieler: "Ehm, Christa, Hasenburg, Volker, Kreh, Wilhelm, Saage, Armin, Tkotz, Peter, Vonrüden, Andreas" },
+            { saison: 1998, meister: "MZ DR", wp: 36, spp: 1124, spieler: "Angermann, Terrance, Döhring, Gerd, Hagen, Petra, Katona, Arne, Weinkauf, Joachim" },
+            { saison: 1997, meister: "DU ZHN / MH FUKS", wp: 33, spp: 734, spieler: "Kempkens, Thorsten, Klapdor, Stefan, Metz, Ralph, Uliczka, Jan, von der Warth, Guido, von der Warth, Katja" }
+        ];
+
+        // Vollständige Einzel-Historie (Einzelwertung 1997 bis 2025 - EXAKT nach "Alle einzelsieger_2.jpg")
+        const EWIGE_EINZEL_HISTORIE = [
+            { saison: 2025, name: "Schützendorf, Jürgen", mannschaft: "MO K92", verein: "MO K92", punkte: 404, runden: 39, schnitt: 10.35 },
+            { saison: 2024, name: "Lechner, Stefan", mannschaft: "NOM BAZ I", verein: "NOMBAZ", punkte: 602, runden: 40, schnitt: 15.05 },
+            { saison: 2023, name: "Vonrüden, Andreas", mannschaft: "W KD / CE LLE", verein: "W KD", punkte: 406, runden: 33, schnitt: 12.30 },
+            { saison: 2019, name: "Mahnert, Thomas", mannschaft: "DA JA80", verein: "DA JA80", punkte: 286, runden: 38, schnitt: 7.53 },
+            { saison: 2018, name: "Scholten, Markus", mannschaft: "GÖ TTER", verein: "GÖ TTER", punkte: 407, runden: 37, schnitt: 11.00 },
+            { saison: 2017, name: "Laun, Bodo", mannschaft: "W KD / MS DCM", verein: "W KD", punkte: 506, runden: 32, schnitt: 15.81 },
+            { saison: 2016, name: "Hantschel, Sascha", mannschaft: "BOT DKC", verein: "BOTDKC", punkte: 415, runden: 40, schnitt: 10.38 },
+            { saison: 2015, name: "von der Warth, Guido", mannschaft: "MH FUKS / M WB", verein: "MH FUKS", punkte: 405, runden: 38, schnitt: 10.66 },
+            { saison: 2014, name: "Weßels, Guido", mannschaft: "W KD / MS DCM", verein: "MS DCM", punkte: 434, runden: 36, schnitt: 12.06 },
+            { saison: 2013, name: "Jöns, Daniel", mannschaft: "BOT DKC", verein: "BOTDKC", punkte: 526, runden: 38, schnitt: 13.84 },
+            { saison: 2012, name: "Bolik, Christian", mannschaft: "MH FUKS / DU ZHN", verein: "MH FUKS", punkte: 398, runden: 40, schnitt: 9.95 },
+            { saison: 2011, name: "Kannenberg, Leif", mannschaft: "BS NON", verein: "BS NON", punkte: 532, runden: 40, schnitt: 13.30 },
+            { saison: 2010, name: "Weber, Dirk", mannschaft: "BS 1DDC / CBDF", verein: "BS CBDF", punkte: 373, runden: 34, schnitt: 10.97 },
+            { saison: 2009, name: "Stopka, Dominik", mannschaft: "MI CMDF", verein: "MI CMDF", punkte: 563, runden: 40, schnitt: 14.08 },
+            { saison: 2008, name: "Vonrüden, Andreas", mannschaft: "GM RADE /W KD", verein: "GM RADE", punkte: 604, runden: 38, schnitt: 15.89 },
+            { saison: 2007, name: "Kannenberg, Leif", mannschaft: "BS NON I", verein: "BS NON", punkte: 469, runden: 40, schnitt: 11.73 },
+            { saison: 2006, name: "Vonrüden, Andreas", mannschaft: "GM RADE / W KD", verein: "GM RADE", punkte: 458, runden: 40, schnitt: 11.45 },
+            { saison: 2005, name: "L'hoest, Wilko", mannschaft: "MZ DR / ESW DFB", verein: "MZ DR", punkte: 495, runden: 33, schnitt: 15.00 },
+            { saison: 2004, name: "Angermann, Terrance", mannschaft: "MZ DR", verein: "MZ DR", punkte: 624, runden: 32, schnitt: 19.50 },
+            { saison: 2003, name: "Kümmet, Hans-Jürgen", mannschaft: "MZ DR", verein: "MZ DR", punkte: 517, runden: 40, schnitt: 12.93 },
+            { saison: 2002, name: "Kannenberg, Leif", mannschaft: "BS NON", verein: "BS NON", punkte: 443, runden: 40, schnitt: 11.08 },
+            { saison: 2001, name: "Bode, Peter", mannschaft: "K 1DCK", verein: "K 1DCK", punkte: 507, runden: 32, schnitt: 15.84 },
+            { saison: 2000, name: "Kannenberg, Leif", mannschaft: "BS NON", verein: "BS NON", punkte: 521, runden: 40, schnitt: 13.03 },
+            { saison: 1999, name: "Vonrüden, Andreas", mannschaft: "GM RADE / W KD", verein: "GM RADE", punkte: 386, runden: 35, schnitt: 11.03 },
+            { saison: 1998, name: "Müller, Andreas", mannschaft: "W WAS", verein: "W WAS", punkte: 431, runden: 40, schnitt: 10.78 },
+            { saison: 1997, name: "von der Warth, Guido", mannschaft: "DU ZHN / MH FUKS", verein: "DU ZHN", punkte: 493, runden: 38, schnitt: 12.97 }
+        ];
 
         // Gruppen-Zuordnungen für die 5 Doppel-Spieltage
         const GROUPS_BY_PAIR = {
@@ -909,6 +1123,48 @@
 
         function hideNotification() { document.getElementById('notification').classList.add('hidden'); }
 
+        // MODAL MEISTER HISTORIE
+        function openMeisterModal() {
+            const tbody = document.getElementById('modal-meister-body');
+            tbody.innerHTML = '';
+            MEISTER_HISTORIE.forEach((item, idx) => {
+                let rankBadge = idx === 0 ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30 font-bold' : 'bg-slate-800 text-slate-400';
+                tbody.innerHTML += `
+                    <tr class="hover:bg-slate-800/40">
+                        <td class="py-3 px-4 text-center"><span class="inline-flex items-center justify-center px-2 py-0.5 rounded text-xs ${rankBadge}">${item.saison}</span></td>
+                        <td class="py-3 px-4 font-semibold text-white">${item.meister}</td>
+                        <td class="py-3 px-3 text-center font-bold text-amber-400">${item.wp}</td>
+                        <td class="py-3 px-3 text-center font-bold text-slate-300">${item.spp}</td>
+                        <td class="py-3 px-4 text-slate-300 text-[11px] leading-relaxed">${item.spieler}</td>
+                    </tr>
+                `;
+            });
+            document.getElementById('meister-modal').classList.remove('hidden');
+        }
+        function closeMeisterModal() { document.getElementById('meister-modal').classList.add('hidden'); }
+
+        // MODAL EWIGE EINZEL-HISTORIE
+        function openEwigeEinzelModal() {
+            const tbody = document.getElementById('modal-ewige-einzel-body');
+            tbody.innerHTML = '';
+            EWIGE_EINZEL_HISTORIE.forEach((item, idx) => {
+                let rankBadge = idx === 0 ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-bold' : 'bg-slate-800 text-slate-400';
+                tbody.innerHTML += `
+                    <tr class="hover:bg-slate-800/40">
+                        <td class="py-3 px-4 text-center"><span class="inline-flex items-center justify-center px-2 py-0.5 rounded text-xs ${rankBadge}">${item.saison}</span></td>
+                        <td class="py-3 px-4 font-semibold text-white">${item.name}</td>
+                        <td class="py-3 px-4 text-slate-300">${item.mannschaft}</td>
+                        <td class="py-3 px-4 text-slate-400 text-xs">${item.verein}</td>
+                        <td class="py-3 px-3 text-center font-bold text-emerald-400">${item.punkte}</td>
+                        <td class="py-3 px-3 text-center text-slate-300">${item.runden}</td>
+                        <td class="py-3 px-3 text-center font-bold text-slate-200">${item.schnitt.toFixed(2)}</td>
+                    </tr>
+                `;
+            });
+            document.getElementById('ewige-einzel-modal').classList.remove('hidden');
+        }
+        function closeEwigeEinzelModal() { document.getElementById('ewige-einzel-modal').classList.add('hidden'); }
+
         function calculateStandings() {
             let teamStats = {};
             TEAMS.forEach(team => {
@@ -1111,7 +1367,11 @@
             const modalBody = document.getElementById('modal-player-body');
             modalBody.innerHTML = '';
 
-            let teamPlayers = SINGLE_DATA_2026.filter(p => p.team === teamName);
+            let teamPlayers = SINGLE_DATA_2026.filter(p => {
+                if (p.team === teamName) return true;
+                let parts = teamName.split('/').map(s => s.trim());
+                return parts.some(part => p.team.includes(part) || p.club === part);
+            });
             teamPlayers.sort((a, b) => b.pts - a.pts);
 
             if (teamPlayers.length === 0) {
