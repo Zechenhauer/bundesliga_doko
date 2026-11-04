@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doppelkopf Bundesliga Manager 2026</title>
+    <!-- Perfektes Inline-SVG Icon mit Herz-10 für die DoKo Bundesliga App -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%238e1616%22/><text x=%2250%22 y=%2272%22 font-size=%2255%22 text-anchor=%22middle%22 fill=%22%23ffffff%22>🂊</text></svg>">
+    <link rel="apple-touch-icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%238e1616%22/><text x=%2250%22 y=%2272%22 font-size=%2255%22 text-anchor=%22middle%22 fill=%22%23ffffff%22>🂊</text></svg>">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -61,8 +64,8 @@
             <p class="text-xs text-slate-400 font-medium pt-1">Webmanagement Jürgen Schützendorf</p>
         </div>
 
-        <!-- DIE 3 SPEZIELLEN KACHELN -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <!-- DIE 4 SPEZIELLEN KACHELN -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <!-- Kachel 1: Top 3 Einzel 2026 -->
             <div onclick="switchTab('single-2026')" class="bg-slate-900/80 border border-slate-800 hover:border-brand-500/60 transition cursor-pointer rounded-2xl p-4 shadow-xl backdrop-blur-sm flex flex-col justify-between">
                 <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-800">
@@ -131,6 +134,30 @@
                     <div class="flex items-center justify-between p-2 rounded-lg bg-slate-950/40 border border-slate-800/50">
                         <span class="text-slate-300 font-medium">2023: Vonrüden, Andreas</span>
                         <span class="font-bold text-emerald-400">406 Pkt.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kachel 4: Ewige Bestenliste (Top 3 exakt vom Foto) -->
+            <div onclick="openEwigeBestenlisteModal()" class="bg-slate-900/80 border border-slate-800 hover:border-indigo-500/60 transition cursor-pointer rounded-2xl p-4 shadow-xl backdrop-blur-sm flex flex-col justify-between">
+                <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-800">
+                    <h3 class="font-bold text-white text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-star text-indigo-400"></i> Ewige Bestenliste
+                    </h3>
+                    <span class="text-[10px] bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded border border-indigo-500/30">Top 20</span>
+                </div>
+                <div class="space-y-2.5 text-xs pointer-events-none">
+                    <div class="flex items-center justify-between p-2 rounded-lg bg-slate-950/40 border border-slate-800/50">
+                        <span class="text-slate-300 font-medium">1. Vonrüden, Andreas</span>
+                        <span class="font-bold text-indigo-400">6.471 Pkt.</span>
+                    </div>
+                    <div class="flex items-center justify-between p-2 rounded-lg bg-slate-950/40 border border-slate-800/50">
+                        <span class="text-slate-300 font-medium">2. Kannenberg, Leif</span>
+                        <span class="font-bold text-indigo-400">5.618 Pkt.</span>
+                    </div>
+                    <div class="flex items-center justify-between p-2 rounded-lg bg-slate-950/40 border border-slate-800/50">
+                        <span class="text-slate-300 font-medium">3. Jöns, Daniel</span>
+                        <span class="font-bold text-indigo-400">4.557 Pkt.</span>
                     </div>
                 </div>
             </div>
@@ -394,7 +421,7 @@
         </div>
     </div>
 
-    <!-- MODAL 3: EHRENTAFEL MANNSCHAFTSWERTUNG (Exakt nach Bild "Alle Meister_2.jpg") -->
+    <!-- MODAL 3: EHRENTAFEL MANNSCHAFTSWERTUNG -->
     <div id="meister-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-4xl w-full p-6 shadow-2xl space-y-5 relative">
             <button onclick="closeMeisterModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg">
@@ -431,7 +458,7 @@
         </div>
     </div>
 
-    <!-- MODAL 4: EHRENTAFEL EINZELWERTUNG (Exakt nach Bild "Alle einzelsieger_2.jpg") -->
+    <!-- MODAL 4: EHRENTAFEL EINZELWERTUNG -->
     <div id="ewige-einzel-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-4xl w-full p-6 shadow-2xl space-y-5 relative">
             <button onclick="closeEwigeEinzelModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg">
@@ -470,6 +497,48 @@
         </div>
     </div>
 
+    <!-- MODAL 5: EWIGE BESTENLISTE TOP 20 (EXAKT NACH FOTO) -->
+    <div id="ewige-bestenliste-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-5xl w-full p-6 shadow-2xl space-y-5 relative">
+            <button onclick="closeEwigeBestenlisteModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="flex items-center space-x-3">
+                <div class="bg-indigo-500/20 text-indigo-400 p-3 rounded-xl border border-indigo-500/30">
+                    <i class="fa-solid fa-star text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-white">Ewige Bestenliste (Top 20)</h3>
+                    <p class="text-xs text-slate-400">Gesamtwertung aller Spieler nach Punkten</p>
+                </div>
+            </div>
+            <div class="overflow-x-auto max-h-[70vh]">
+                <table class="w-full text-left border-collapse text-xs">
+                    <thead>
+                        <tr class="bg-slate-800/80 text-slate-300 uppercase tracking-wider text-[10px] border-b border-slate-700 sticky top-0">
+                            <th class="py-3 px-3 text-center font-bold w-12">Rang</th>
+                            <th class="py-3 px-4 font-bold">Nachname</th>
+                            <th class="py-3 px-4 font-bold">Vorname</th>
+                            <th class="py-3 px-4 font-bold">Verein</th>
+                            <th class="py-3 px-3 text-center font-bold">Saisons</th>
+                            <th class="py-3 px-3 text-center font-bold bg-indigo-950/40 text-indigo-400">Punkte</th>
+                            <th class="py-3 px-3 text-center font-bold">Runden</th>
+                            <th class="py-3 px-3 text-center font-bold">Schnitt</th>
+                            <th class="py-3 px-3 text-center font-bold">Einzelw.</th>
+                            <th class="py-3 px-3 text-center font-bold">Titel</th>
+                        </tr>
+                    </thead>
+                    <tbody id="modal-ewige-bestenliste-body" class="divide-y divide-slate-800/60 font-medium"></tbody>
+                </table>
+            </div>
+            <div class="flex justify-end pt-2">
+                <button onclick="closeEwigeBestenlisteModal()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-xl transition">
+                    Schließen
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-slate-900 border-t border-slate-800 mt-12 py-6 text-center text-xs text-slate-500">
         <p>Doppelkopf Bundesliga Manager &copy; 2026 &bull; Webmanagement Jürgen Schützendorf</p>
@@ -482,7 +551,31 @@
         const SUPABASE_ANON_KEY = 'sb_publishable_yXEueWILvAq-Vm2VfTuYyg_BIQeE1KK';
         const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-        // Vollständige Meister-Historie (Mannschaftswertung 1997 bis 2025 - EXAKT nach "Alle Meister_2.jpg")
+        // Daten der Ewigen Bestenliste Top 20 (EXAKT nach Foto)
+        const EWIGE_BESTENLISTE_DATA = [
+            { rang: 1, nachname: "Vonrüden", vorname: "Andreas", verein: "W KD", saison: 28, punkte: "6.471", runden: 916, schnitt: "7,06", einzelw: 4, titel: 8 },
+            { rang: 2, nachname: "Kannenberg", vorname: "Leif", verein: "BS CBDF", saison: 25, punkte: "5.618", runden: 796, schnitt: "7,06", einzelw: 4, titel: 3 },
+            { rang: 3, nachname: "Jöns", vorname: "Daniel", verein: "BOT DKC", saison: 26, punkte: "4.557", runden: 760, schnitt: "6,00", einzelw: 1, titel: 2 },
+            { rang: 4, nachname: "L'hoest", vorname: "Wilko", verein: "DA JA80", saison: 26, punkte: "3.581", runden: 737, schnitt: "4,86", einzelw: 1, titel: 2 },
+            { rang: 5, nachname: "Angermann", vorname: "Terrance", verein: "MZ DR", saison: 22, punkte: "3.350", runden: 494, schnitt: "6,78", einzelw: 1, titel: 3 },
+            { rang: 6, nachname: "Stopka", vorname: "Dominik", verein: "BOT DKC", saison: 16, punkte: "3.300", runden: 452, schnitt: "7,30", einzelw: 1, titel: 4 },
+            { rang: 7, nachname: "Laun", vorname: "Bodo", verein: "W KD", saison: 26, punkte: "3.211", runden: 733, schnitt: "4,38", einzelw: 1, titel: 4 },
+            { rang: 8, nachname: "de Kok", vorname: "Michael", verein: "BOT DKC", saison: 26, punkte: "2.969", runden: 877, schnitt: "3,39", einzelw: 0, titel: 2 },
+            { rang: 9, nachname: "von der Warth", vorname: "Guido", verein: "MH FUKS", saison: 23, punkte: "2.887", runden: 764, schnitt: "3,78", einzelw: 2, titel: 3 },
+            { rang: 10, nachname: "Weßels", vorname: "Guido", verein: "MS DCM", saison: 16, punkte: "2.853", runden: 504, schnitt: "5,66", einzelw: 1, titel: 2 },
+            { rang: 11, nachname: "Hoops", vorname: "Lars-Peter", verein: "NOM BAZ", saison: 19, punkte: "2.851", runden: 543, schnitt: "5,25", einzelw: 0, titel: 3 },
+            { rang: 12, nachname: "Hantschel", vorname: "Sascha", verein: "BOT DKC", saison: 26, punkte: "2.653", runden: 879, schnitt: "3,02", einzelw: 1, titel: 2 },
+            { rang: 13, nachname: "Weber", vorname: "Dirk", verein: "BS 1DDC", saison: 25, punkte: "2.492", runden: 829, schnitt: "3,01", einzelw: 1, titel: 0 },
+            { rang: 14, nachname: "Helmchen", vorname: "Albert", verein: "M DDUL", saison: 24, punkte: "2.386", runden: 574, schnitt: "4,16", einzelw: 1, titel: 0 },
+            { rang: 15, nachname: "Kempkens", vorname: "Thorsten", verein: "MH FUKS", saison: 18, punkte: "2.302", runden: 474, schnitt: "4,86", einzelw: 0, titel: 3 },
+            { rang: 16, nachname: "Baaken", vorname: "Hermann", verein: "MO K92", saison: 27, punkte: "2.198", runden: 722, schnitt: "3,04", einzelw: 0, titel: 2 },
+            { rang: 17, nachname: "Lechner", vorname: "Stefan", verein: "W KD", saison: 8, punkte: "2.020", runden: 265, schnitt: "7,62", einzelw: 1, titel: 0 },
+            { rang: 18, nachname: "Gompf", vorname: "Hans-Peter", verein: "DA JA80", saison: 17, punkte: "2.004", runden: 450, schnitt: "4,45", einzelw: 0, titel: 1 },
+            { rang: 19, nachname: "Quint", vorname: "Robert", verein: "MZ DR", saison: 20, punkte: "1.977", runden: 679, schnitt: "2,91", einzelw: 0, titel: 0 },
+            { rang: 20, nachname: "Schmitz", vorname: "Elmar", verein: "SU MOBU", saison: 19, punkte: "1.742", runden: 588, schnitt: "2,96", einzelw: 0, titel: 0 }
+        ];
+
+        // Vollständige Meister-Historie (Mannschaftswertung 1997 bis 2025)
         const MEISTER_HISTORIE = [
             { saison: 2025, meister: "W KD / CE LLE", wp: 33, spp: 866, spieler: "Buchhalla, Katharina, Flieger, Helmut, Godglück, Fabian, Kümmet, Hans-Jürgen, Laun, Bodo, Löffelholz, Mario, Mathesie, Andrea, Schierbaum, Ralf, Vonrüden, Andreas, Vonrüden, Verena" },
             { saison: 2024, meister: "BOT DKC", wp: 32, spp: 945, spieler: "Bolik, Christian, de Kok, Michael, Hantschel, Sascha, Jöns, Daniel, Schmidt, Ralf, Stopka, Dominik" },
@@ -512,7 +605,7 @@
             { saison: 1997, meister: "DU ZHN / MH FUKS", wp: 33, spp: 734, spieler: "Kempkens, Thorsten, Klapdor, Stefan, Metz, Ralph, Uliczka, Jan, von der Warth, Guido, von der Warth, Katja" }
         ];
 
-        // Vollständige Einzel-Historie (Einzelwertung 1997 bis 2025 - EXAKT nach "Alle einzelsieger_2.jpg")
+        // Vollständige Einzel-Historie (Einzelwertung 1997 bis 2025)
         const EWIGE_EINZEL_HISTORIE = [
             { saison: 2025, name: "Schützendorf, Jürgen", mannschaft: "MO K92", verein: "MO K92", punkte: 404, runden: 39, schnitt: 10.35 },
             { saison: 2024, name: "Lechner, Stefan", mannschaft: "NOM BAZ I", verein: "NOMBAZ", punkte: 602, runden: 40, schnitt: 15.05 },
@@ -965,7 +1058,7 @@
             {"rank": 117, "name": "Unland, Stefanie", "club": "H MAZO", "team": "H MAZO", "pts": -272.0, "rd": 28, "avg": -9.71},
             {"rank": 118, "name": "Leonhardt, Ulf", "club": "MZ DR", "team": "F GUDE / MZ DR", "pts": -278.0, "rd": 24, "avg": -11.58},
             {"rank": 119, "name": "Weidmann, Claudia", "club": "M DDUL", "team": "M DDUL", "pts": -292.0, "rd": 23, "avg": -12.7},
-            {"rank": 120, "name": "Röhn, Norbert", "club": "NOM BAZ", "team": "NOM BAZ II", "pts": -367.0, "rd": 34, "avg": -10.79}
+            {"rank": 120, "name": "Röhn, Norbert", "club": "NOM BAZ", "team": "NOM BAZ II", "pts": -390.0, "rd": 25, "avg": -15.6}
         ];
 
         let allTeamsSet = new Set();
@@ -1164,6 +1257,34 @@
             document.getElementById('ewige-einzel-modal').classList.remove('hidden');
         }
         function closeEwigeEinzelModal() { document.getElementById('ewige-einzel-modal').classList.add('hidden'); }
+
+        // MODAL EWIGE BESTENLISTE TOP 20
+        function openEwigeBestenlisteModal() {
+            const tbody = document.getElementById('modal-ewige-bestenliste-body');
+            tbody.innerHTML = '';
+            EWIGE_BESTENLISTE_DATA.forEach((item) => {
+                let rankBadge = item.rang === 1 ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30 font-bold' :
+                                item.rang === 2 ? 'bg-slate-300/20 text-slate-300 border border-slate-400/30 font-bold' :
+                                item.rang === 3 ? 'bg-amber-700/20 text-amber-600 border border-amber-700/30 font-bold' : 'bg-slate-800 text-slate-400';
+
+                tbody.innerHTML += `
+                    <tr class="hover:bg-slate-800/40">
+                        <td class="py-3 px-3 text-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full text-xs ${rankBadge}">${item.rang}</span></td>
+                        <td class="py-3 px-4 font-semibold text-white">${item.nachname}</td>
+                        <td class="py-3 px-4 text-slate-200">${item.vorname}</td>
+                        <td class="py-3 px-4 text-slate-300">${item.verein}</td>
+                        <td class="py-3 px-3 text-center text-slate-300">${item.saison}</td>
+                        <td class="py-3 px-3 text-center font-bold text-indigo-400 bg-indigo-950/25">${item.punkte}</td>
+                        <td class="py-3 px-3 text-center text-slate-300">${item.runden}</td>
+                        <td class="py-3 px-3 text-center font-bold text-slate-200">${item.schnitt}</td>
+                        <td class="py-3 px-3 text-center text-slate-300">${item.einzelw}</td>
+                        <td class="py-3 px-3 text-center font-bold text-amber-400">${item.titel}</td>
+                    </tr>
+                `;
+            });
+            document.getElementById('ewige-bestenliste-modal').classList.remove('hidden');
+        }
+        function closeEwigeBestenlisteModal() { document.getElementById('ewige-bestenliste-modal').classList.add('hidden'); }
 
         function calculateStandings() {
             let teamStats = {};
@@ -1367,11 +1488,8 @@
             const modalBody = document.getElementById('modal-player-body');
             modalBody.innerHTML = '';
 
-            let teamPlayers = SINGLE_DATA_2026.filter(p => {
-                if (p.team === teamName) return true;
-                let parts = teamName.split('/').map(s => s.trim());
-                return parts.some(part => p.team.includes(part) || p.club === part);
-            });
+            // Exakter Match auf den vollständigen Mannschaftsnamen (team === teamName)
+            let teamPlayers = SINGLE_DATA_2026.filter(p => p.team === teamName);
             teamPlayers.sort((a, b) => b.pts - a.pts);
 
             if (teamPlayers.length === 0) {
